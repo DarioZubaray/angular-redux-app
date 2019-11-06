@@ -15,9 +15,8 @@ export class AppComponent {
   contador: number;
 
   constructor(private store: Store<AppState>) {
-    this.store.subscribe(estado => {
-      console.log(estado);
-      this.contador = estado.contador;
+    this.store.select('contador').subscribe(contador => {
+      this.contador = contador;
     });
   }
 
